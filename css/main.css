@@ -29,10 +29,9 @@
     --shadow: #9ca3afaa;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 12.5rem 3fr;
-    grid-template-rows: 7.5rem auto;
+/* remove this if you want to add your own icons */
+.icon {
+    background-color: var(--sky-100);
 }
 
 img {
@@ -40,14 +39,61 @@ img {
     height: 100%;
 }
 
+.btn-primary {
+    padding: .5em 1.5em;
+    font-weight: 500;
+    border-radius: 1.25rem;
+    background-color: var(--sky-500);
+    color: var(--white);
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: .5rem;
+    box-shadow: 1px 1px 4px var(--shadow);
+    padding: 1.5em;
+}
+
+.card .title {
+    font-weight: bold;
+    margin: .25em 0; 
+}
+
+.card .text {
+    color: var(--gray-500);
+}
+
+.card .section {
+    padding: 1em 0;
+}
+
+.card .section:not(:last-child) {
+    border-bottom: 1px solid var(--gray-300);
+}
+
+
+
+.container {
+    display: grid;
+    grid-template-columns: auto 3fr;
+    grid-template-rows: repeat(2, auto);
+}
+
+
+
 .sidebar {
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
     background-color: var(--sky-500);
-    font-size: 1.25rem;
+    font-size: .75rem;
+    font-weight: bold;
     color: var(--white);
     box-shadow: 1px 0px 4px var(--shadow);
     z-index: 1;
+}
+
+.sidebar div {
+    margin: .5rem;
 }
 
 .sidebar > .logo,
@@ -55,15 +101,12 @@ img {
 .sidebar > .second {
     display: grid;
     grid-template-columns: auto 1fr;
+    align-items: center;
 }
 
 .sidebar > .first {
     margin-top: 2rem;
     margin-bottom: 2rem;
-}
-
-.sidebar div {
-    margin: .5rem;
 }
 
 .sidebar .icon {
@@ -72,37 +115,32 @@ img {
 }
 
 .sidebar > .logo {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
-}
-
-.sidebar > .logo > .icon {
-    height: 1.5rem;
-    width: 1.5rem;
 }
 
 
 
 .header {
+    /* global layout */
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
-    display: grid;
-    grid-template-columns: minmax(24rem, 1fr) 16rem;
-    grid-template-rows: 1.5rem 3rem;
-    gap: 1rem;
-    height: 7.5rem;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    background-color: var(--white);
-    box-shadow: 1px 1px 4px var(--shadow);
     z-index: 1;
+    background-color: var(--white);
+    padding: 1rem 1.5rem;
+    box-shadow: 1px 1px 4px var(--shadow);
+    /* inner layout */
+    display: grid;
+    grid-template-columns: minmax(24rem, 2fr) minmax(16rem, 1fr);
+    grid-template-rows: 2rem 3.5rem;
+    gap: 1rem;
+    align-items: center;
 }
 
 .search {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
-    justify-content: start;
     gap: .5rem;
 }
 
@@ -129,7 +167,7 @@ img {
     grid-auto-flow: column;
 }
 
-.profile > .notify {
+.profile > .icon {
     width: 1rem;
     height: 1rem;
 }
@@ -182,21 +220,20 @@ img {
     grid-auto-flow: column;
 }
 
-.menu > .btn {
-    padding: .5rem 1.25rem;
-    background-color: var(--sky-600);
-    color: var(--white);
+.menu .btn-primary {
     font-size: .75rem;
-    font-weight: 500;
-    border-radius: 1.25rem;
 }
 
 
 
+
+
 .main {
+    /* global layout */
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
     background-color: var(--gray-200);
+    /* inner layout */
     display: grid;
     grid-template-columns: 1fr 16rem;
     gap: 1rem;
@@ -224,36 +261,14 @@ img {
     -webkit-line-clamp: 5;
 }
 
-.card {
-    background-color: var(--white);
-    border-radius: .5rem;
-    box-shadow: 1px 1px 4px var(--shadow);
-    padding: 2em;
-}
 
-.card .title {
-    font-weight: bold;
-    margin: .5em 0; 
-}
-
-.card .text {
-    color: var(--gray-500);
-}
-
-.card .section {
-    padding: 1em 0;
-}
-
-.card .section:not(:last-child) {
-    border-bottom: 1px solid var(--gray-300);
-}
 
 
 .right-col > .block:not(:last-child) {
     margin-bottom: 2rem;
 }
 
-.right-col .title {
+.right-col > .block > .title {
     margin: .5rem 0;
     font-weight: bold;
 }
@@ -266,7 +281,7 @@ img {
     height: 2.5em;
     margin: 1.5em 0;
     display: grid;
-    grid-template-columns: 3rem 1fr;
+    grid-template-columns: 3em 1fr;
     align-items: center;
 }
 
@@ -289,6 +304,10 @@ img {
 }
 
 
+.left-col > .title {
+    margin: .5rem 0;
+    font-weight: bold;
+}
 
 .projects {
     display: grid;
@@ -298,14 +317,17 @@ img {
 }
 
 .projects > .card {
-    height: 14rem;
+    /* global layout */
+    height: 13.5rem;
+    border-left: .5em solid var(--sky-500);
+    /* inner layout */
     display: grid;
     grid-template-rows: auto auto 1fr;
     align-content: start;
 }
 
 .projects > .card > .text {
-    max-height: calc(4 * 1.2em); /* maximum 4 lines */
+    max-height: calc(4 * 1.2em); /* maximum 4 lines, default line height = 1.2 */
 }
 
 .projects > .card > .controls {
@@ -317,8 +339,8 @@ img {
 }
 
 .projects > .card > .controls > .icon {
-    width: 1rem;
-    height: 1rem;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 
