@@ -25,11 +25,13 @@
     --sky-700: #0369a1;
     --sky-800: #075985;
     --sky-900: #0c4a6e;
+
+    --shadow: #9ca3afaa;
 }
 
 .container {
     display: grid;
-    grid-template-columns: minmax(12rem, 1fr) 3fr;
+    grid-template-columns: 12.5rem 3fr;
     grid-template-rows: 7.5rem auto;
 }
 
@@ -44,7 +46,7 @@ img {
     background-color: var(--sky-500);
     font-size: 1.25rem;
     color: var(--white);
-    box-shadow: 1px 0px 4px #9ca3af;
+    box-shadow: 1px 0px 4px var(--shadow);
     z-index: 1;
 }
 
@@ -92,7 +94,7 @@ img {
     align-items: center;
     padding: 1rem 1.5rem;
     background-color: var(--white);
-    box-shadow: 1px 1px 4px #9ca3afaa;
+    box-shadow: 1px 1px 4px var(--shadow);
     z-index: 1;
 }
 
@@ -195,5 +197,131 @@ img {
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
     background-color: var(--gray-200);
+    display: grid;
+    grid-template-columns: 1fr 16rem;
+    gap: 1rem;
+    padding: 1rem;
 }
+
+.line-clamp-3 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.line-clamp-4 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.line-clamp-5 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: .5rem;
+    box-shadow: 1px 1px 4px var(--shadow);
+    padding: 2em;
+}
+
+.card .title {
+    font-weight: bold;
+    margin: .5em 0; 
+}
+
+.card .text {
+    color: var(--gray-500);
+}
+
+.card .section {
+    padding: 1em 0;
+}
+
+.card .section:not(:last-child) {
+    border-bottom: 1px solid var(--gray-300);
+}
+
+
+.right-col > .block:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+.right-col .title {
+    margin: .5rem 0;
+    font-weight: bold;
+}
+
+.right-col .card {
+    font-size: .75rem;
+}
+
+.right-col .card .user {
+    height: 2.5em;
+    margin: 1.5em 0;
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    align-items: center;
+}
+
+.right-col .card .user > .logo {
+    grid-row: 1 / 2 span;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.right-col .card .user > .logo > img {
+    border-radius: 1.25em;
+}
+
+.right-col .card .user > .id {
+    font-weight: bold;
+}
+
+.right-col .card .user > .slogen {
+    color: var(--gray-500);
+}
+
+
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+    align-content: start;
+}
+
+.projects > .card {
+    height: 14rem;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    align-content: start;
+}
+
+.projects > .card > .text {
+    max-height: calc(4 * 1.2em); /* maximum 4 lines */
+}
+
+.projects > .card > .controls {
+    align-self: end; 
+    justify-self: end;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1.5em;
+}
+
+.projects > .card > .controls > .icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+
+
+
 
