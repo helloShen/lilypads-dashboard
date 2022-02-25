@@ -14,6 +14,17 @@
     --black: #000000;
     --white: #ffffff;
 
+    --neutral-50: #fafafa;
+    --neutral-100: #f5f5f5;
+    --neutral-200: #e5e5e5;
+    --neutral-300: #d4d4d4;
+    --neutral-400: #a3a3a3;
+    --neutral-500: #737373;
+    --neutral-600: #525252;
+    --neutral-700: #404040;
+    --neutral-800: #262626;
+    --neutral-900: #171717;
+
     --slate-50: #f8fafc;
     --slate-100: #f1f5f9;
     --slate-200: #e2e8f0;
@@ -47,12 +58,13 @@
     --sky-800: #075985;
     --sky-900: #0c4a6e;
 
+    --yellow-400: #facc15;
+
     --shadow: #9ca3afaa;
 }
 
-/* remove this if you want to add your own icons */
-.icon {
-    /* background-color: var(--sky-100); */
+body {
+    color: var(--slate-700);
 }
 
 img {
@@ -108,61 +120,75 @@ img {
     grid-row: 1 / span 2;
     /* inner layout */
     font-family: 'Poppins';
-    color: var(--slate-900);
-    background-color: var(--slate-50);
+    background-color: var(--white);
+    box-shadow: 1px 1px 4px var(--shadow);
     z-index: 1;
 }
 
 .sidebar .title {
     font-size: 1.25rem;
     font-weight: lighter;
-    color: var(--slate-600);
     margin-left: 1rem;
     margin-bottom: .5rem;
 }
 
-.sidebar > .devices {
-    margin-bottom: 2rem;
-}
-
 .sidebar a {
     padding: 0 1rem;
-    border-right: .25rem solid var(--slate-50);
+    border-right: .25rem solid var(--white);
+    color: var(--slate-700);
     display: grid;
-    grid-template-columns: 2.25rem 8rem;
+    grid-template-columns: 2.25rem 6rem;
     gap: .25rem;
+    align-items: center;
 }
 
-.sidebar a:not(:first-child):hover {
-    background-color: var(--sky-200);
+.sidebar > div:not(.logo) a:hover {
+    background-color: var(--slate-200);
     color: var(--white);
     border-right: .25rem solid var(--sky-500);
 }
 
 .sidebar > .logo > a {
     padding: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
-.sidebar span.icon {
+.sidebar > div:not(:first-child):not(:last-child) {
+    margin: 1.25rem 0;
+}
+
+.sidebar > div:not(.logo) i.material-icons {
     font-size: 1.25rem;
+    line-height: 1.25rem;
     font-weight: bold;
     margin: .5rem;
     margin-left: 1rem;
-    color: var(--slate-900);
 }
 
-.sidebar > .logo span.icon {
-    font-size: 2rem;
-    margin: 0;
+.sidebar > div:not(.logo) i.mdi {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    font-weight: bold;
+    margin: .5rem;
+    margin-left: 1rem;
 }
 
-.sidebar span.name {
+.sidebar > :not(.logo) span.name {
     font-size: .75rem;
     font-weight: 600;
     line-height: 1.25rem;
     margin: .5rem;
-    color: var(--slate-900);
+}
+
+.sidebar > div:not(.logo) >a:hover i.material-icons,
+.sidebar > div:not(.logo) >a:hover i.mdi,
+.sidebar > div:not(.logo) >a:hover span.name {
+    color: var(--sky-500);
+}
+
+.sidebar > .logo i.material-icons {
+    font-size: 2rem;
+    margin: 0;
 }
 
 .sidebar .logo span.name {
@@ -170,7 +196,6 @@ img {
     font-weight: bold;
     line-height: 2rem;
     margin: 0;
-    color: var(--gray-900);
 }
 
 
@@ -188,6 +213,7 @@ img {
     grid-template-rows: 2rem 3.5rem;
     gap: 1rem;
     align-items: center;
+    z-index: 1;
 }
 
 .search {
@@ -197,9 +223,11 @@ img {
     gap: .5rem;
 }
 
-.search > .icon {
-    width: 1rem;
-    height: 1rem;
+.search > i {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    color: var(--gray-400);
 }
 
 .search > textarea {
@@ -220,9 +248,11 @@ img {
     grid-auto-flow: column;
 }
 
-.profile > .icon {
-    width: 1rem;
-    height: 1rem;
+.profile > i {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    color: var(--gray-400);
 }
 
 .profile > .logo {
@@ -285,13 +315,12 @@ img {
     /* global layout */
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
-    background-color: var(--gray-200);
+    background-color: var(--slate-50);
     /* inner layout */
     display: grid;
     grid-template-columns: 1fr 16rem;
-    gap: 1rem;
-    padding: 1rem;
-    z-index: -1;
+    gap: 1.5rem;
+    padding: 1.5rem;
 }
 
 .line-clamp-3 {
@@ -331,6 +360,14 @@ img {
     font-size: .75rem;
 }
 
+.right-col .card {
+    cursor: pointer;
+}
+
+.right-col .card .title:hover {
+    color: var(--sky-500);
+}
+
 .right-col .card .user {
     height: 2.5em;
     margin: 1.5em 0;
@@ -365,22 +402,34 @@ img {
 
 .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1.5rem;
     align-content: start;
 }
 
 .projects > .card {
     /* global layout */
-    height: 13.5rem;
-    border-left: .5em solid var(--sky-500);
+    height: 12rem;
+    border-left: .5em solid var(--white);
     /* inner layout */
     display: grid;
     grid-template-rows: auto auto 1fr;
     align-content: start;
+    /* inner style */
+    cursor: pointer;
+    user-select: none;
+}
+
+.projects > .card:hover {
+    border-left: .5em solid var(--sky-500);
+}
+
+.projects > .card:hover > .title {
+    color: var(--sky-500);
 }
 
 .projects > .card > .text {
+    font-size: .75rem;
     max-height: calc(4 * 1.2em); /* maximum 4 lines, default line height = 1.2 */
 }
 
@@ -392,10 +441,22 @@ img {
     gap: 1.5em;
 }
 
-.projects > .card > .controls > .icon {
+.projects > .card > .controls > i {
     width: 1.25rem;
     height: 1.25rem;
+    cursor: pointer;
+    user-select: none;
+    color: var(--gray-400);
 }
+
+.projects > .card > .controls > i:last-child:hover {
+    color: var(--sky-500);
+}
+
+.projects > .card > .controls > i.lighted {
+    color: var(--yellow-400);
+}
+
 
 
 
