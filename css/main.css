@@ -1,8 +1,29 @@
+/* Normalization */
 @import url("./norm.css");
+
+/* Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Chicle&family=Poppins:wght@300;400;500;600;700&family=Roboto&display=swap');
+
+/* Google Icon Font */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* Material Design Icon */
+@import url('https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css');
 
 :root {
     --black: #000000;
     --white: #ffffff;
+
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1e293b;
+    --slate-900: #0f172a;
 
     --gray-50: #f9fafb;
     --gray-100: #f3f4f6;
@@ -31,7 +52,7 @@
 
 /* remove this if you want to add your own icons */
 .icon {
-    background-color: var(--sky-100);
+    /* background-color: var(--sky-100); */
 }
 
 img {
@@ -82,41 +103,74 @@ img {
 
 
 .sidebar {
+    /* global layout */
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
-    background-color: var(--sky-500);
-    font-size: .75rem;
-    font-weight: bold;
-    color: var(--white);
-    box-shadow: 1px 0px 4px var(--shadow);
+    /* inner layout */
+    font-family: 'Poppins';
+    color: var(--slate-900);
+    background-color: var(--slate-50);
     z-index: 1;
 }
 
-.sidebar div {
-    margin: .5rem;
+.sidebar .title {
+    font-size: 1.25rem;
+    font-weight: lighter;
+    color: var(--slate-600);
+    margin-left: 1rem;
+    margin-bottom: .5rem;
 }
 
-.sidebar > .logo,
-.sidebar > .first,
-.sidebar > .second {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-}
-
-.sidebar > .first {
-    margin-top: 2rem;
+.sidebar > .devices {
     margin-bottom: 2rem;
 }
 
-.sidebar .icon {
-    height: 1rem;
-    width: 1rem;
+.sidebar a {
+    padding: 0 1rem;
+    border-right: .25rem solid var(--slate-50);
+    display: grid;
+    grid-template-columns: 2.25rem 8rem;
+    gap: .25rem;
 }
 
-.sidebar > .logo {
+.sidebar a:not(:first-child):hover {
+    background-color: var(--sky-200);
+    color: var(--white);
+    border-right: .25rem solid var(--sky-500);
+}
+
+.sidebar > .logo > a {
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.sidebar span.icon {
     font-size: 1.25rem;
     font-weight: bold;
+    margin: .5rem;
+    margin-left: 1rem;
+    color: var(--slate-900);
+}
+
+.sidebar > .logo span.icon {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.sidebar span.name {
+    font-size: .75rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    margin: .5rem;
+    color: var(--slate-900);
+}
+
+.sidebar .logo span.name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 2rem;
+    margin: 0;
+    color: var(--gray-900);
 }
 
 
@@ -125,7 +179,6 @@ img {
     /* global layout */
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
-    z-index: 1;
     background-color: var(--white);
     padding: 1rem 1.5rem;
     box-shadow: 1px 1px 4px var(--shadow);
@@ -238,6 +291,7 @@ img {
     grid-template-columns: 1fr 16rem;
     gap: 1rem;
     padding: 1rem;
+    z-index: -1;
 }
 
 .line-clamp-3 {
