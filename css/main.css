@@ -59,6 +59,9 @@
     --sky-900: #0c4a6e;
 
     --yellow-400: #facc15;
+    --slate-green-100: #2FBA98;
+    --slate-green-300: #00929A;
+    --slate-green-500: #1F6881;
 
     --shadow: #9ca3afaa;
 }
@@ -118,85 +121,73 @@ img {
     /* global layout */
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
-    /* inner layout */
+    width: 11.5rem; /* 1 + 2 + 1.25 + 6 + 1 + .25 */
+    /* inner style */
     font-family: 'Poppins';
-    background-color: var(--white);
+    color: var(--slate-green-100);
+    background-color: var(--slate-700);
     box-shadow: 1px 1px 4px var(--shadow);
-    z-index: 1;
 }
 
-.sidebar .title {
-    font-size: 1.25rem;
-    font-weight: lighter;
-    margin-left: 1rem;
-    margin-bottom: .5rem;
+.sidebar.hide {
+    width: 4.25rem; /* 1 + 2 + 1.25 */
 }
 
 .sidebar a {
-    padding: 0 1rem;
-    border-right: .25rem solid var(--white);
-    color: var(--slate-700);
+    padding: .5rem 1rem;
+    /* border-right: .25rem solid var(--slate-700); */
     display: grid;
-    grid-template-columns: 2.25rem 6rem;
-    gap: .25rem;
+    grid-template-columns: 2rem 6rem;
     align-items: center;
-}
-
-.sidebar > div:not(.logo) a:hover {
-    background-color: var(--slate-200);
-    color: var(--white);
-    border-right: .25rem solid var(--sky-500);
-}
-
-.sidebar > .logo > a {
-    padding: 1rem;
-    margin-bottom: 1rem;
-}
-
-.sidebar > div:not(:first-child):not(:last-child) {
-    margin: 1.25rem 0;
+    gap: 1.25rem;
 }
 
 .sidebar > div:not(.logo) i.material-icons {
+    justify-self: center;
     font-size: 1.25rem;
     line-height: 1.25rem;
     font-weight: bold;
-    margin: .5rem;
-    margin-left: 1rem;
 }
 
 .sidebar > div:not(.logo) i.mdi {
+    justify-self: center;
     font-size: 1.25rem;
     line-height: 1.25rem;
     font-weight: bold;
-    margin: .5rem;
-    margin-left: 1rem;
 }
 
 .sidebar > :not(.logo) span.name {
     font-size: .75rem;
     font-weight: 600;
     line-height: 1.25rem;
-    margin: .5rem;
 }
 
-.sidebar > div:not(.logo) >a:hover i.material-icons,
-.sidebar > div:not(.logo) >a:hover i.mdi,
-.sidebar > div:not(.logo) >a:hover span.name {
-    color: var(--sky-500);
+.sidebar > .logo > a {
+    padding: 1rem;
 }
 
 .sidebar > .logo i.material-icons {
+    justify-self: center;
     font-size: 2rem;
-    margin: 0;
 }
 
 .sidebar .logo span.name {
     font-size: 1.25rem;
     font-weight: bold;
     line-height: 2rem;
-    margin: 0;
 }
+
+.sidebar > div:not(.logo) a:hover {
+    color: var(--white);
+    background-color: var(--slate-green-300);
+    border-right: .25rem solid var(--slate-green-100);
+}
+
+.sidebar > div:not(:first-child):not(:last-child) {
+    margin: 1.5rem 0;
+}
+
+
 
 
 
@@ -213,7 +204,7 @@ img {
     grid-template-rows: 2rem 3.5rem;
     gap: 1rem;
     align-items: center;
-    z-index: 1;
+    z-index: 2;
 }
 
 .search {
@@ -321,6 +312,7 @@ img {
     grid-template-columns: 1fr 16rem;
     gap: 1.5rem;
     padding: 1.5rem;
+    z-index: 1;
 }
 
 .line-clamp-3 {
@@ -365,7 +357,7 @@ img {
 }
 
 .right-col .card .title:hover {
-    color: var(--sky-500);
+    color: var(--slate-green-300);
 }
 
 .right-col .card .user {
@@ -400,16 +392,18 @@ img {
     font-weight: bold;
 }
 
+
+
 .projects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-    gap: 1.5rem;
+    gap: 1rem;
     align-content: start;
 }
 
 .projects > .card {
     /* global layout */
-    height: 12rem;
+    height: 11rem;
     border-left: .5em solid var(--white);
     /* inner layout */
     display: grid;
@@ -418,14 +412,11 @@ img {
     /* inner style */
     cursor: pointer;
     user-select: none;
-}
-
-.projects > .card:hover {
-    border-left: .5em solid var(--sky-500);
+    border-left: .5em solid var(--slate-green-100);
 }
 
 .projects > .card:hover > .title {
-    color: var(--sky-500);
+    color: var(--slate-green-300);
 }
 
 .projects > .card > .text {
@@ -450,7 +441,7 @@ img {
 }
 
 .projects > .card > .controls > i:last-child:hover {
-    color: var(--sky-500);
+    color: var(--slate-green-100);
 }
 
 .projects > .card > .controls > i.lighted {

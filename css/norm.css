@@ -21,5 +21,5 @@ ol {
 
 a {
     text-decoration: none;
-    color: black;
+    color: currentColor;
 }
